@@ -1,0 +1,936 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    background: #fff;
+    color: #000;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+    font-size: 100%;
+}
+
+img {
+    border: 0;
+    display: block;
+    -ms-interpolation-mode: bicubic;
+}
+
+button,
+input,
+textarea,
+select {
+    border-radius: 0;
+    outline: none;
+    font-family: inherit;
+    font-size: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button,
+input[type=submit] {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+a {
+    outline: none;
+    color: $palette_black;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+/* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
+
+.tooltipster-default {
+    border-radius: 5px;
+    border: 2px solid #000;
+    background: #4c4c4c;
+    color: #fff;
+}
+/* Use this next selector to style things like font-size and line-height: */
+
+.tooltipster-default .tooltipster-content {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 8px 10px;
+    overflow: hidden;
+}
+/* This next selector defines the color of the border on the outside of the arrow. This will automatically match the color and size of the border set on the main tooltip styles. Set display: none; if you would like a border around the tooltip but no border around the arrow */
+
+.tooltipster-default .tooltipster-arrow .tooltipster-arrow-border {
+    /* border-color: ... !important; */
+}
+/* If you're using the icon option, use this next selector to style them */
+
+.tooltipster-icon {
+    cursor: help;
+    margin-left: 4px;
+}
+/* This is the base styling required to make all Tooltipsters work */
+
+.tooltipster-base {
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999999;
+    pointer-events: none;
+    width: auto;
+    overflow: visible;
+}
+
+.tooltipster-base .tooltipster-content {
+    overflow: hidden;
+}
+/* These next classes handle the styles for the little arrow attached to the tooltip. By default, the arrow will inherit the same colors and border as what is set on the main tooltip itself. */
+
+.tooltipster-arrow {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.tooltipster-arrow span,
+.tooltipster-arrow-border {
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.tooltipster-arrow-top span,
+.tooltipster-arrow-top-right span,
+.tooltipster-arrow-top-left span {
+    border-left: 8px solid transparent !important;
+    border-right: 8px solid transparent !important;
+    border-top: 8px solid;
+    bottom: -7px;
+}
+
+.tooltipster-arrow-top .tooltipster-arrow-border,
+.tooltipster-arrow-top-right .tooltipster-arrow-border,
+.tooltipster-arrow-top-left .tooltipster-arrow-border {
+    border-left: 9px solid transparent !important;
+    border-right: 9px solid transparent !important;
+    border-top: 9px solid;
+    bottom: -7px;
+}
+
+.tooltipster-arrow-bottom span,
+.tooltipster-arrow-bottom-right span,
+.tooltipster-arrow-bottom-left span {
+    border-left: 8px solid transparent !important;
+    border-right: 8px solid transparent !important;
+    border-bottom: 8px solid;
+    top: -7px;
+}
+
+.tooltipster-arrow-bottom .tooltipster-arrow-border,
+.tooltipster-arrow-bottom-right .tooltipster-arrow-border,
+.tooltipster-arrow-bottom-left .tooltipster-arrow-border {
+    border-left: 9px solid transparent !important;
+    border-right: 9px solid transparent !important;
+    border-bottom: 9px solid;
+    top: -7px;
+}
+
+.tooltipster-arrow-top span,
+.tooltipster-arrow-top .tooltipster-arrow-border,
+.tooltipster-arrow-bottom span,
+.tooltipster-arrow-bottom .tooltipster-arrow-border {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.tooltipster-arrow-top-left span,
+.tooltipster-arrow-bottom-left span {
+    left: 6px;
+}
+
+.tooltipster-arrow-top-left .tooltipster-arrow-border,
+.tooltipster-arrow-bottom-left .tooltipster-arrow-border {
+    left: 5px;
+}
+
+.tooltipster-arrow-top-right span,
+.tooltipster-arrow-bottom-right span {
+    right: 6px;
+}
+
+.tooltipster-arrow-top-right .tooltipster-arrow-border,
+.tooltipster-arrow-bottom-right .tooltipster-arrow-border {
+    right: 5px;
+}
+
+.tooltipster-arrow-left span,
+.tooltipster-arrow-left .tooltipster-arrow-border {
+    border-top: 8px solid transparent !important;
+    border-bottom: 8px solid transparent !important;
+    border-left: 8px solid;
+    top: 50%;
+    margin-top: -7px;
+    right: -7px;
+}
+
+.tooltipster-arrow-left .tooltipster-arrow-border {
+    border-top: 9px solid transparent !important;
+    border-bottom: 9px solid transparent !important;
+    border-left: 9px solid;
+    margin-top: -8px;
+}
+
+.tooltipster-arrow-right span,
+.tooltipster-arrow-right .tooltipster-arrow-border {
+    border-top: 8px solid transparent !important;
+    border-bottom: 8px solid transparent !important;
+    border-right: 8px solid;
+    top: 50%;
+    margin-top: -7px;
+    left: -7px;
+}
+
+.tooltipster-arrow-right .tooltipster-arrow-border {
+    border-top: 9px solid transparent !important;
+    border-bottom: 9px solid transparent !important;
+    border-right: 9px solid;
+    margin-top: -8px;
+}
+/* Some CSS magic for the awesome animations - feel free to make your own custom animations and reference it in your Tooltipster settings! */
+
+.tooltipster-fade {
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    -ms-transition-property: opacity;
+    transition-property: opacity;
+}
+
+.tooltipster-fade-show {
+    opacity: 1;
+}
+
+.tooltipster-grow {
+    -webkit-transform: scale(0, 0);
+    -moz-transform: scale(0, 0);
+    -o-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    transform: scale(0, 0);
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    -ms-transition-property: -ms-transform;
+    transition-property: transform;
+    -webkit-backface-visibility: hidden;
+}
+
+.tooltipster-grow-show {
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    -ms-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+}
+
+.tooltipster-swing {
+    opacity: 0;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -o-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    transform: rotateZ(4deg);
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    -ms-transition-property: -ms-transform;
+    transition-property: transform;
+}
+
+.tooltipster-swing-show {
+    opacity: 1;
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+    -webkit-transition-timing-function: cubic-bezier(0.230, 0.635, 0.495, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.230, 0.635, 0.495, 2.4);
+    -moz-transition-timing-function: cubic-bezier(0.230, 0.635, 0.495, 2.4);
+    -ms-transition-timing-function: cubic-bezier(0.230, 0.635, 0.495, 2.4);
+    -o-transition-timing-function: cubic-bezier(0.230, 0.635, 0.495, 2.4);
+    transition-timing-function: cubic-bezier(0.230, 0.635, 0.495, 2.4);
+}
+
+.tooltipster-fall {
+    top: 0;
+    -webkit-transition-property: top;
+    -moz-transition-property: top;
+    -o-transition-property: top;
+    -ms-transition-property: top;
+    transition-property: top;
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    -ms-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+}
+
+.tooltipster-fall-show {}
+
+.tooltipster-fall.tooltipster-dying {
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -ms-transition-property: all;
+    transition-property: all;
+    top: 0px !important;
+    opacity: 0;
+}
+
+.tooltipster-slide {
+    left: -40px;
+    -webkit-transition-property: left;
+    -moz-transition-property: left;
+    -o-transition-property: left;
+    -ms-transition-property: left;
+    transition-property: left;
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    -ms-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.15);
+}
+
+.tooltipster-slide.tooltipster-slide-show {}
+
+.tooltipster-slide.tooltipster-dying {
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -ms-transition-property: all;
+    transition-property: all;
+    left: 0px !important;
+    opacity: 0;
+}
+/* CSS transition for when contenting is changing in a tooltip that is still open. The only properties that will NOT transition are: width, height, top, and left */
+
+.tooltipster-content-changing {
+    opacity: 0.5;
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+
+.tooltipster-custom {
+    border-radius: 5px;
+    background: #111;
+    color: white;
+}
+
+.tooltipster-custom .tooltipster-content {
+    font-family: "Courier New";
+    font-size: 12px;
+    line-height: 20px;
+    padding: 20px;
+    text-align: left;
+}
+
+.tooltipster-custom .tooltipster-content a {
+    color: white;
+    text-decoration: underline;
+}
+/* Mixins */
+
+h1.logo {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 40px;
+    letter-spacing: 6px;
+    font-family: 'Montserrat', 'PT Serif', serif;
+}
+
+h3 {
+    font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+    font-size: 18px;
+    line-height: 28px;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: "Courier New";
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 20px 0;
+}
+
+p.arrowed:before {
+    margin-right: 8px;
+    content: "›";
+}
+
+a {
+    color: #1c1d1d;
+    text-decoration: none;
+}
+
+.underline {
+    border: 0;
+    border-bottom: 1px solid;
+    background: transparent;
+}
+
+.underline.processing {
+    border-color: transparent;
+    cursor: default !important;
+}
+
+.btn {
+    display: inline-block;
+    font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    font-size: 13px;
+    background-color: #1c1d1d;
+    color: #fff;
+    text-decoration: none;
+    border: 0;
+}
+
+.btn.line {
+    border: 3px solid #1c1d1d;
+    padding: 9px 17px;
+    background-color: transparent;
+    font-weight: 700;
+    color: #1c1d1d;
+}
+
+.btn.list {
+    margin: 10px 0;
+}
+
+.btn.full {
+    width: 100%;
+}
+
+.btn.processing {
+    text-decoration: none;
+    cursor: default !important;
+}
+
+.btn.processing i {
+    margin-right: 10px;
+}
+
+table {
+    margin: 20px 0;
+    border-collapse: collapse;
+    font-family: "Courier New";
+    font-weight: normal;
+    font-size: 14px;
+    width: 100%;
+}
+
+table tr.processing {
+    display: none;
+}
+
+table th,
+table td {
+    border: 3px solid #1C1D1D;
+    padding: 12px 20px;
+}
+
+table th.icon,
+table td.icon {
+    text-align: center;
+    width: 100px;
+}
+
+table th.icon.green,
+table td.icon.green {
+    background: #5bbd72;
+    /*    background: #d83c3c;*/
+}
+
+table th.option,
+table td.option {
+    text-align: center;
+}
+
+table th {
+    font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: white;
+    color: #1c1d1d;
+    text-align: center;
+    padding: 12px 10px 12px 20px;
+    width: 30%;
+}
+
+table th:after {
+    content: "→";
+    margin: 0 0 0 5px;
+}
+
+table td {
+    cursor: default;
+}
+
+table td form {
+    border: 0;
+    margin: 0;
+}
+
+table td form .input {
+    border: 0;
+    width: 100%;
+    padding: 0 0 5px;
+    font-family: "Courier New";
+    border-bottom: 1px dashed;
+}
+
+form {
+    margin: 20px 0;
+    width: 100%;
+    border: 3px solid #1c1d1d;
+}
+
+form .line {
+    padding: 25px;
+    border-bottom: 3px solid #1c1d1d;
+}
+
+form .line label {
+    display: block;
+    font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+form .line label:after {
+    content: ":";
+}
+
+form .line .input {
+    border: 0;
+    width: 100%;
+    padding: 10px 0 5px;
+    font-size: 26px;
+    color: #1c1d1d;
+    font-family: "Courier New";
+    border-bottom: 1px dashed;
+}
+
+form .line select {
+    width: 100%;
+    margin: 20px 0 5px;
+    color: #1c1d1d;
+    font-family: "Courier New";
+}
+
+form .line.checkbox label {
+    display: inline;
+    margin: 0 0 0 5px;
+}
+
+form .line.checkbox label:after {
+    content: none;
+}
+
+form .line.last {
+    border-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    p.arrowed {
+        width: 90%;
+        margin: 30px auto;
+    }
+    p.arrowed:before {
+        content: "";
+        margin-right: 0;
+    }
+    input {
+        text-align: center;
+    }
+    form .line label:after {
+        content: "";
+    }
+    table th {
+        padding: 12px 10px 12px 10px;
+    }
+    table th:after {
+        content: "";
+        margin: 0;
+    }
+}
+/* Mixins */
+
+body {
+    color: #1c1d1d;
+}
+
+.content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.content .block {
+    margin: 30px 0 50px;
+    max-width: 700px;
+}
+
+.content .block.extra {
+    margin-top: 100px;
+}
+
+.content .block.last {
+    margin-bottom: 0;
+}
+
+.hide {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .content {
+        padding: 15px;
+        text-align: center;
+    }
+}
+/* Mixins */
+
+.header {
+    width: 100%;
+    /*    background: #5bbd72;*/
+    
+    background: #d83c3c;
+    padding: 25px 0;
+}
+
+.header .nav {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 10px 0;
+    }
+    .header h1 {
+        width: 100%;
+        text-align: center;
+    }
+    .header .nav {
+        display: none;
+    }
+}
+/* Mixins */
+
+.footer {
+    display: none;
+    width: 100%;
+    /*    background: #5bbd72;*/
+    
+    background: #d83c3c;
+    padding: 50px 0;
+    margin: 50px 0 0;
+}
+
+.footer h1 {
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.footer p {
+    margin: 10px 0;
+}
+/* Mixins */
+
+.hero {
+    display: none;
+}
+
+#home .hero {
+    display: block;
+    padding: 20px 0 80px;
+    /*    background: #5bbd72;*/
+    
+    background: #d83c3c;
+    overflow: hidden;
+    height: 420px;
+}
+
+#home .hero .content:after {
+    display: table;
+    content: '';
+    clear: both;
+}
+
+#home .hero .content .text {
+    float: left;
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+}
+
+#home .hero .content .text h2 {
+    font-family: "Old Standard TT";
+    font-size: 58px;
+    line-height: 64px;
+    font-weight: normal;
+    display: none;
+}
+
+#home .hero .content .text h2.active {
+    display: inline;
+}
+
+#home .hero .content .text h3 {
+    margin: 10px 0 0;
+    font-family: "Courier New";
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 20px 0 20px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+#home .hero .content .text.show {
+    opacity: 1;
+    -webkit-animation: hero-text-in 0.5s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+    -moz-animation: hero-text-in 0.5s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+    animation: hero-text-in 0.5s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+}
+
+@-moz-keyframes hero-text-in {
+    0%, 35% {
+        opacity: 0;
+        -webkit-transform: translateY(8px);
+        -moz-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+        -o-transform: translateY(8px);
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes hero-text-in {
+    0%, 35% {
+        opacity: 0;
+        -webkit-transform: translateY(8px);
+        -moz-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+        -o-transform: translateY(8px);
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes hero-text-in {
+    0%, 35% {
+        opacity: 0;
+        -webkit-transform: translateY(8px);
+        -moz-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+        -o-transform: translateY(8px);
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+}
+
+#home .hero .content img {
+    z-index: 1;
+    width: 300px;
+    position: absolute;
+    bottom: -325px;
+    right: 175px;
+    transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+    -webkit-backface-visibility: hidden;
+}
+
+@media (max-width: 1050px) {
+    #home .hero .content .text h2 {
+        font-size: 48px;
+        line-height: 54px;
+        max-width: 600px;
+    }
+    #home .hero .content .text h3 {
+        width: 100%;
+    }
+    #home .hero .content img {
+        width: 260px;
+    }
+}
+
+@media (max-width: 900px) {
+    #home .hero .content .text h2 {
+        font-size: 58px;
+        line-height: 64px;
+        max-width: 100%;
+    }
+    #home .hero .content img {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    #home .hero {
+        padding: 40px 0 60px;
+        height: auto;
+    }
+    #home .hero .content .text {
+        float: none;
+    }
+    #home .hero .content .text h2 {
+        font-size: 38px;
+        line-height: 44px;
+    }
+    #home .hero .content .text h3 {
+        width: 80%;
+        margin: 20px auto;
+    }
+}
+/* Mixins */
+
+#home .onboarded table {
+    margin-bottom: 60px;
+}
+
+#home .onboarded .short {
+    display: none;
+}
+
+#home .onboarded .logout {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    #home .onboarded .short {
+        display: inline;
+    }
+    #home .onboarded .long {
+        display: none;
+    }
+    #home .onboarded tr.logout {
+        display: table-row;
+    }
+    #home .onboarded table.three_columns th {
+        display: none;
+    }
+    #home .onboarded table.three_columns td.email {
+        max-width: 50px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+    #home .onboarded table.three_columns td {
+        display: center;
+    }
+    #home .welcome .fa-question-circle {
+        display: none;
+    }
+    #home .welcome p {
+        line-height: 26px;
+    }
+}
+/* Mixins */
+
+#devise-registrations .main.content:after,
+#devise-sessions .main.content:after {
+    display: table;
+    content: '';
+    clear: both;
+}
+
+#devise-registrations .main.content .left,
+#devise-sessions .main.content .left {
+    float: left;
+    width: 40%;
+    margin-right: 10%;
+}
+
+#devise-registrations .main.content .right,
+#devise-sessions .main.content .right {
+    float: left;
+    width: 40%;
+}
